@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.supermarketbillingsystem.ReceiptController">
+    <!-- Receipt text display area -->
+    <TextArea fx:id="receiptTextArea" prefWidth="600" prefHeight="400" editable="false" wrapText="true" style="-fx-font-size: 14px; -fx-padding: 10px; -fx-border-color: #ccc; -fx-border-width: 1px;" />
+
+    <!-- Back Button to navigate back to the Billing screen -->
+    <Button text="Back" onAction="#goBackToBilling" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px 20px;" />
+</VBox>

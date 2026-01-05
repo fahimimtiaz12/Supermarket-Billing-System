@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.effect.*?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.example.supermarketbillingsystem.TotalIncomeController"
+            style="-fx-background-color: linear-gradient(to bottom right, #1e3c72, #2a5298);">
+
+    <VBox spacing="20" alignment="CENTER"
+          AnchorPane.topAnchor="50"
+          AnchorPane.leftAnchor="50"
+          AnchorPane.rightAnchor="50"
+          AnchorPane.bottomAnchor="50">
+
+        <!-- Header with icon -->
+        <HBox alignment="CENTER" spacing="10">
+            <Label text="💰" style="-fx-font-size: 28px;"/>
+            <Label text="Today's Total Income" style="-fx-font-size: 28px; -fx-text-fill: #ffffff; -fx-font-weight: bold;"/>
+        </HBox>
+
+        <!-- Income display card -->
+        <StackPane style="-fx-background-color: white;
+                         -fx-background-radius: 12;
+                         -fx-padding: 30px 50px;
+                         -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);">
+            <Label fx:id="totalIncomeLabel"
+                   text="0.00"
+                   style="-fx-font-size: 42px;
+                         -fx-text-fill: #2ecc71;
+                         -fx-font-weight: bold;"/>
+        </StackPane>
+
+        <!-- Decorative line -->
+        <Line endX="200" stroke="#ffffff" strokeWidth="1" opacity="0.3"/>
+
+        <!-- Button container -->
+        <HBox spacing="20" alignment="CENTER">
+            <Button text="🔄 Refresh"
+                    onAction="#refreshTotalIncome"
+                    style="-fx-background-color: #3498db;
+          -fx-text-fill: white;
+          -fx-font-size: 16px;
+          -fx-font-weight: bold;
+          -fx-padding: 12px 30px;
+          -fx-background-radius: 8;"
+            />
+
+            <Button text="← Back"
+                    onAction="#goBackToDashboard"
+                    style="-fx-background-color: #e74c3c;
+          -fx-text-fill: white;
+          -fx-font-size: 16px;
+          -fx-font-weight: bold;
+          -fx-padding: 12px 30px;
+          -fx-background-radius: 8;"
+            />
+        </HBox>
+    </VBox>
+</AnchorPane>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.supermarketbillingsystem.BillingController"
+            style="-fx-background-color: linear-gradient(to bottom right, #f5f7fa, #c3cfe2);">
+
+    <center>
+        <VBox prefWidth="400" spacing="5" style="-fx-padding: 20; -fx-background-color: rgba(255,255,255,0.92); -fx-background-radius: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
+            <!-- Product Search by Code -->
+            <HBox spacing="10" style="-fx-padding: 8; -fx-background-color: white; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 1);">
+                <Label text="Search by Code:" style="-fx-font-weight: bold; -fx-text-fill: #444; -fx-font-size: 14;"/>
+                <TextField fx:id="searchField" onAction="#searchProductByCode" promptText="Search by Product Code"
+                           style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5; -fx-padding: 6; -fx-font-size: 14;"/>
+            </HBox>
+
+            <!-- Table for cart items -->
+            <TableView fx:id="cartTable" style="-fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 8, 0, 0, 2);">
+                <columns>
+                    <TableColumn fx:id="itemCol" editable="false" text="Item" style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+                    <TableColumn fx:id="qtyCol" editable="true" text="Qty" style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+                    <TableColumn fx:id="priceCol" editable="false" text="Price" style="-fx-font-weight: bold; -fx-font-size: 14;"/>
+                </columns>
+            </TableView>
+
+            <!-- Total Section -->
+            <HBox spacing="10" style="-fx-padding: 12; -fx-background-color: #f0f8ff; -fx-background-radius: 8;">
+                <Label text="Total:" style="-fx-font-weight: bold; -fx-font-size: 16; -fx-text-fill: #333;"/>
+                <Label fx:id="totalLabel" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2E7D32;" text="0.00" />
+            </HBox>
+
+            <!-- Cash Input Section -->
+            <HBox spacing="10" style="-fx-padding: 8; -fx-background-color: white; -fx-background-radius: 8;">
+                <Label text="Cash:" style="-fx-font-weight: bold; -fx-text-fill: #444; -fx-font-size: 14;"/>
+                <TextField fx:id="cashField" promptText="Enter Cash"
+                           style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5; -fx-padding: 6; -fx-font-size: 14;"/>
+                <Button onAction="#handlePayment"
+                        style="-fx-background-color: linear-gradient(to bottom, #4CAF50, #45a049);
+                           -fx-text-fill: white;
+                           -fx-font-size: 14px;
+                           -fx-font-weight: bold;
+                           -fx-background-radius: 5;
+                           -fx-padding: 8 16;
+                           -fx-cursor: hand;
+                           -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);"
+                        text="Pay" />
+            </HBox>
+
+            <!-- Balance Section -->
+            <HBox spacing="10" style="-fx-padding: 12; -fx-background-color: #f0f8ff; -fx-background-radius: 8;">
+                <Label text="Balance:" style="-fx-font-weight: bold; -fx-font-size: 16; -fx-text-fill: #333;"/>
+                <Label fx:id="balanceLabel" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #2196F3;" text="0.00" />
+            </HBox>
+
+            <!-- Discount Section -->
+            <HBox spacing="10" style="-fx-padding: 8; -fx-background-color: white; -fx-background-radius: 8;">
+                <Label text="Discount (%):" style="-fx-font-weight: bold; -fx-text-fill: #444; -fx-font-size: 14;"/>
+                <TextField fx:id="discountField" promptText="Enter discount"
+                           style="-fx-background-radius: 5; -fx-border-color: #e0e0e0; -fx-border-radius: 5; -fx-padding: 6; -fx-font-size: 14;"/>
+            </HBox>
+
+            <Button text="Proceed to Payment" onAction="#proceedToPayment"
+                    style="-fx-background-color: linear-gradient(to bottom right, #4CAF50, #2E7D32);
+                       -fx-text-fill: white;
+                       -fx-font-family: 'Segoe UI';
+                       -fx-font-size: 16px;
+                       -fx-font-weight: bold;
+                       -fx-padding: 12px 24px;
+                       -fx-background-radius: 8px;
+                       -fx-border-radius: 8px;
+                       -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 2);
+                       -fx-cursor: hand;"/>
+
+            <!-- Back Button -->
+            <Button onAction="#goBackToDashboard"
+                    style="-fx-background-color: linear-gradient(to bottom, #f44336, #d32f2f);
+                       -fx-text-fill: white;
+                       -fx-font-size: 16px;
+                       -fx-font-weight: bold;
+                       -fx-padding: 8px 20px;
+                       -fx-background-radius: 5px;
+                       -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 3, 0, 0, 1);
+                       -fx-cursor: hand;"
+                    text="Back" />
+        </VBox>
+    </center>
+</BorderPane>

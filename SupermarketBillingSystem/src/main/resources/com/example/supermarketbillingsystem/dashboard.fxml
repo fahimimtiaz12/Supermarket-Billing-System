@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.supermarketbillingsystem.DashboardController"
+            style="-fx-background-color: linear-gradient(135deg, #f5f7fa 0%, #b8c6db 100%);">
+
+    <!-- Decorative Elements -->
+    <Rectangle width="200" height="200" arcWidth="100" arcHeight="100"
+               fill="radial-gradient(center 50% 50%, radius 70%, rgba(46,204,113,0.1), transparent)"
+               layoutX="-50" layoutY="-50" rotate="45"/>
+    <Circle radius="150" fill="radial-gradient(center 50% 50%, radius 70%, rgba(52,152,219,0.08), transparent)"
+            layoutX="400" layoutY="500"/>
+
+    <!-- Main Content Card -->
+    <VBox spacing="25" alignment="TOP_CENTER"
+          AnchorPane.topAnchor="40" AnchorPane.leftAnchor="40"
+          AnchorPane.rightAnchor="40" AnchorPane.bottomAnchor="40"
+          style="-fx-padding: 35; -fx-background-color: rgba(255,255,255,0.97); -fx-background-radius: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 20, 0, 0, 5);">
+
+        <!-- Dashboard Header with Emoji -->
+        <HBox alignment="CENTER" spacing="15">
+            <Text text="🛒" style="-fx-font-size: 36px; -fx-font-family: 'Segoe UI Emoji';"/>
+            <Label text="Supermarket Billing Dashboard"
+                   style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: linear-gradient(to right, #2c3e50, #3498db); -fx-font-family: 'Segoe UI Semibold';"/>
+        </HBox>
+
+        <!-- Status Panel with Emoji Badges -->
+        <VBox spacing="12" alignment="CENTER"
+              style="-fx-padding: 20 30; -fx-background-color: #f8faff; -fx-background-radius: 15; -fx-border-color: #e0e8ff; -fx-border-radius: 15; -fx-border-width: 1;">
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <StackPane style="-fx-background-color: #e0e8ff; -fx-background-radius: 50%; -fx-padding: 5; -fx-min-width: 30; -fx-min-height: 30;">
+                    <Text text="👩" style="-fx-font-size: 16px; -fx-font-family: 'Segoe UI Emoji';"/>
+                </StackPane>
+                <Label text="Cashier:" style="-fx-font-size: 16px; -fx-text-fill: #555; -fx-font-weight: bold;"/>
+                <Label fx:id="cashierNameLabel" text="admin" style="-fx-font-size: 16px; -fx-text-fill: #27ae60; -fx-font-weight: bold;"/>
+            </HBox>
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <StackPane style="-fx-background-color: #e0e8ff; -fx-background-radius: 50%; -fx-padding: 5; -fx-min-width: 30; -fx-min-height: 30;">
+                    <Text text="✅" style="-fx-font-size: 16px; -fx-font-family: 'Segoe UI Emoji';"/>
+                </StackPane>
+                <Label text="Status:" style="-fx-font-size: 16px; -fx-text-fill: #555; -fx-font-weight: bold;"/>
+                <Label fx:id="cashierStatusLabel" text="online" style="-fx-font-size: 16px; -fx-text-fill: #27ae60; -fx-font-weight: bold;"/>
+            </HBox>
+        </VBox>
+
+        <!-- Action Buttons with Darker Linear Gradient Colors -->
+        <VBox spacing="18" alignment="CENTER" style="-fx-padding: 15 0 0 0;">
+            <!-- Go to Billing Button -->
+            <Button fx:id="billingButton" text="Go to Billing" onAction="#openBilling"
+                    style="-fx-background-color: linear-gradient(to bottom right, #2874a6, #1a5276);
+                           -fx-text-fill: white;
+                           -fx-font-size: 16px;
+                           -fx-font-weight: bold;
+                           -fx-padding: 14px 35px 14px 25px;
+                           -fx-background-radius: 10px;
+                           -fx-cursor: hand;
+                           -fx-min-width: 260px;">
+                <effect>
+                    <DropShadow color="#1a5276" radius="10" spread="0.25" offsetX="2" offsetY="2"/>
+                </effect>
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Text text="💰" style="-fx-font-size: 20px; -fx-font-family: 'Segoe UI Emoji';"/>
+                    <Label text="Go to Billing" style="-fx-text-fill: white; -fx-font-size: 16px;"/>
+                </HBox>
+            </Button>
+
+            <!-- View Total Income Button -->
+            <Button fx:id="totalIncomeButton" text="View Total Income" onAction="#openTotalIncomeView"
+                    style="-fx-background-color: linear-gradient(to bottom right, #239b56, #186a3b);
+                           -fx-text-fill: white;
+                           -fx-font-size: 16px;
+                           -fx-font-weight: bold;
+                           -fx-padding: 14px 35px 14px 25px;
+                           -fx-background-radius: 10px;
+                           -fx-cursor: hand;
+                           -fx-min-width: 260px;">
+                <effect>
+                    <DropShadow color="#186a3b" radius="10" spread="0.25" offsetX="2" offsetY="2"/>
+                </effect>
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Text text="📊" style="-fx-font-size: 20px; -fx-font-family: 'Segoe UI Emoji';"/>
+                    <Label text="View Total Income" style="-fx-text-fill: white; -fx-font-size: 16px;"/>
+                </HBox>
+            </Button>
+
+            <!-- Product Management Button -->
+            <Button fx:id="productManagementButton" text="Product Management" onAction="#openProductManagement"
+                    style="-fx-background-color: linear-gradient(to bottom right, #cb4335, #943126);
+                           -fx-text-fill: white;
+                           -fx-font-size: 16px;
+                           -fx-font-weight: bold;
+                           -fx-padding: 14px 35px 14px 25px;
+                           -fx-background-radius: 10px;
+                           -fx-cursor: hand;
+                           -fx-min-width: 260px;">
+                <effect>
+                    <DropShadow color="#943126" radius="10" spread="0.25" offsetX="2" offsetY="2"/>
+                </effect>
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Text text="📦" style="-fx-font-size: 20px; -fx-font-family: 'Segoe UI Emoji';"/>
+                    <Label text="Product Management" style="-fx-text-fill: white; -fx-font-size: 16px;"/>
+                </HBox>
+            </Button>
+
+            <!-- Add this button to your existing buttons section -->
+            <Button text="Role Management" onAction="#openRoleManagement"
+                    style="-fx-background-color: linear-gradient(to bottom right, #8e44ad, #9b59b6);
+               -fx-text-fill: white;
+               -fx-font-size: 16px;
+               -fx-font-weight: bold;
+               -fx-padding: 14px 35px 14px 25px;
+               -fx-background-radius: 10px;
+               -fx-cursor: hand;
+               -fx-min-width: 260px;">
+                <effect>
+                    <DropShadow color="#9b59b6" radius="10" spread="0.25" offsetX="2" offsetY="2"/>
+                </effect>
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Text text="⚙️" style="-fx-font-size: 20px; -fx-font-family: 'Segoe UI Emoji';"/>
+                    <Label text="Role Management" style="-fx-text-fill: white; -fx-font-size: 16px;"/>
+                </HBox>
+            </Button>
+
+            <!-- Logout Button -->
+            <Button text="Logout" onAction="#logout"
+                    style="-fx-background-color: linear-gradient(to bottom right, #cb4335, #943126);
+                           -fx-text-fill: white;
+                           -fx-font-size: 16px;
+                           -fx-font-weight: bold;
+                           -fx-padding: 14px 35px 14px 25px;
+                           -fx-background-radius: 10px;
+                           -fx-cursor: hand;
+                           -fx-min-width: 260px;">
+                <effect>
+                    <DropShadow color="#943126" radius="10" spread="0.25" offsetX="2" offsetY="2"/>
+                </effect>
+                <HBox spacing="15" alignment="CENTER_LEFT">
+                    <Text text="🚪" style="-fx-font-size: 20px; -fx-font-family: 'Segoe UI Emoji';"/>
+                    <Label text="Logout" style="-fx-text-fill: white; -fx-font-size: 16px;"/>
+                </HBox>
+            </Button>
+        </VBox>
+    </VBox>
+</AnchorPane>

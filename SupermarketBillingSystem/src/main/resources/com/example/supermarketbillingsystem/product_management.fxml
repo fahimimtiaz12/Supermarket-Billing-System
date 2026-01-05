@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.supermarketbillingsystem.ProductManagementController"
+      prefWidth="800" prefHeight="600" spacing="10">
+    <children>
+        <Label text="Product Management" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+        <Label text="Manage your products here" />
+        <HBox spacing="10">
+            <TextField promptText="Product Code" prefWidth="150" />
+            <TextField promptText="Product Name" prefWidth="200" />
+            <TextField promptText="Category" prefWidth="150" />
+        </HBox>
+        <HBox spacing="10">
+            <TextField promptText="Quantity" prefWidth="100" />
+            <TextField promptText="Price" prefWidth="100" />
+            <Button text="Add Product" />
+        </HBox>
+        <TableView prefHeight="300">
+            <columns>
+                <TableColumn text="Product Code" />
+                <TableColumn text="Product Name" />
+                <TableColumn text="Category" />
+                <TableColumn text="Quantity" />
+                <TableColumn text="Price" />
+            </columns>
+        </TableView>
+        <HBox spacing="10" alignment="CENTER_RIGHT">
+            <Button text="Close" onAction="#closeWindow" />
+        </HBox>
+    </children>
+</VBox>

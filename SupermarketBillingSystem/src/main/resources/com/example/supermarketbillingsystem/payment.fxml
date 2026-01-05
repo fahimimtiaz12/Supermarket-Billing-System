@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.supermarketbillingsystem.PaymentController">
+    <children>
+        <!-- Payment Method Selection -->
+        <VBox spacing="20" alignment="CENTER" AnchorPane.topAnchor="50" AnchorPane.leftAnchor="50" AnchorPane.rightAnchor="50" AnchorPane.bottomAnchor="50">
+            <Label text="Select Payment Method" style="-fx-font-size: 24px; -fx-text-fill: #2d59cf;" />
+
+            <ComboBox fx:id="paymentMethodComboBox" promptText="Select Payment Method" onAction="#onPaymentMethodSelected">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Cash"/>
+                        <String fx:value="Card"/>
+                        <String fx:value="WeChat"/>
+                        <String fx:value="Alipay"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <TextField fx:id="cashField" promptText="Enter Cash" />
+
+
+            <!-- Card Information (only visible when Card is selected) -->
+            <HBox fx:id="cardDetailsBox" spacing="10" visible="false">
+                <Label text="Card Number:" />
+                <TextField fx:id="cardNumberField" promptText="Enter Card Number" />
+            </HBox>
+
+            <!-- WeChat Information (only visible when WeChat is selected) -->
+            <HBox fx:id="wechatDetailsBox" spacing="10" visible="false">
+                <Label text="WeChat ID:" />
+                <TextField fx:id="wechatIdField" promptText="Enter WeChat ID" />
+            </HBox>
+
+            <!-- Alipay Information (only visible when Alipay is selected) -->
+            <HBox fx:id="alipayDetailsBox" spacing="10" visible="false">
+                <Label text="Alipay ID:" />
+                <TextField fx:id="alipayIdField" promptText="Enter Alipay ID" />
+            </HBox>
+
+            <!-- Submit Payment Button -->
+            <Button text="Submit Payment" onAction="#submitPayment" style="-fx-background-color: #4caf50; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px 20px;"/>
+
+            <!-- Back to Billing Button -->
+            <Button text="Back to Billing" onAction="#goBackToBilling" style="-fx-background-color: #f44336; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 10px 20px;"/>
+        </VBox>
+    </children>
+</AnchorPane>

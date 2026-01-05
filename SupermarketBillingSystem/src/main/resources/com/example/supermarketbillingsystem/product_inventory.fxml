@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.supermarketbillingsystem.ProductInventoryController">
+    <children>
+        <!-- Table to display products -->
+        <TableView fx:id="inventoryTable" layoutX="20" layoutY="20" prefWidth="600" prefHeight="300">
+            <columns>
+                <TableColumn fx:id="itemCol" text="Product Name" prefWidth="200" />
+                <TableColumn fx:id="qtyCol" text="Quantity" prefWidth="150" />
+                <TableColumn fx:id="priceCol" text="Price" prefWidth="150" />
+            </columns>
+        </TableView>
+
+        <!-- Add New Product Form -->
+        <VBox layoutX="20" layoutY="350" spacing="20" prefWidth="600">
+            <children>
+                <TextField fx:id="nameField" promptText="Product Name" />
+                <TextField fx:id="priceField" promptText="Price" />
+                <TextField fx:id="quantityField" promptText="Quantity" />
+
+                <Button text="Add Product" onAction="#addProductToInventory" style="-fx-background-color: #4caf50; -fx-text-fill: white;" />
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>

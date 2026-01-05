@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="520.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.supermarketbillingsystem.LoginController">
+   <left>
+      <AnchorPane prefHeight="407.0" prefWidth="228.0" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="400.0" fitWidth="244.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../com/example/supermarketbillingsystem/p1.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+   </left>
+   <right>
+      <AnchorPane prefHeight="400.0" prefWidth="332.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label layoutX="26.0" layoutY="151.0" text="Username:">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <TextField fx:id="usernameTextField" layoutX="97.0" layoutY="148.0" prefHeight="26.0" prefWidth="173.0" promptText="Username">
+               <effect>
+                  <Blend />
+               </effect>
+            </TextField>
+            <Label layoutX="26.0" layoutY="184.0" text="Password:">
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="enterPasswordField" layoutX="97.0" layoutY="181.0" prefHeight="26.0" prefWidth="173.0" promptText="Password" />
+            <Button fx:id="loginButton" layoutX="28.0" layoutY="247.0" mnemonicParsing="false" onAction="#loginButtonOnAction" prefHeight="32.0" prefWidth="249.0" style="-fx-background-color: #21968b;" text="Login">
+               <!-- Links FXML to Controller method -->
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="cancelButton" layoutX="28.0" layoutY="288.0" mnemonicParsing="false" onAction="#cancelButtonOnAction" prefHeight="32.0" prefWidth="249.0" style="-fx-background-color: #21968b;" text="Cancle">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Button>
+            <Label alignment="CENTER" layoutX="170.0" layoutY="213.0" prefHeight="19.0" prefWidth="99.0" text="forgot password?" textFill="#db1111" />
+            <ImageView fitHeight="59.0" fitWidth="75.0" layoutX="26.0" layoutY="35.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../../../target/classes/com/example/supermarketbillingsystem/p1.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="97.0" layoutY="46.0" text="Login page" textFill="#378856">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="rememberpass"
+                      layoutX="26.0"
+                      layoutY="214.0"
+                      mnemonicParsing="false"
+                      onAction="#passwordremember"
+                      text="Remember me">
+               <font>
+                  <Font size="11.0"/>
+               </font>
+            </CheckBox>
+         </children></AnchorPane>
+   </right>
+</BorderPane>

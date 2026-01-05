@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.supermarketbillingsystem.RoleManagementController"
+      spacing="10">
+
+    <Text text="Role Management System" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+
+    <HBox spacing="10">
+        <VBox spacing="5" prefWidth="300">
+            <Label text="Role Name:" />
+            <TextField fx:id="roleNameField" />
+
+            <Label text="Permissions:" />
+            <VBox spacing="3">
+                <CheckBox fx:id="totalIncomeCheckBox" text="Total Income Access" />
+                <CheckBox fx:id="productManagementCheckBox" text="Product Management Access" />
+                <CheckBox fx:id="billingCheckBox" text="Billing Access" />
+                <CheckBox fx:id="logoutCheckBox" text="Logout Access" />
+            </VBox>
+
+            <HBox spacing="5">
+                <Button fx:id="addButton" text="Add Role" onAction="#handleAddRole" />
+                <Button fx:id="updateButton" text="Update Role" onAction="#handleUpdateRole" />
+                <Button fx:id="deleteButton" text="Delete Role" onAction="#handleDeleteRole" />
+            </HBox>
+        </VBox>
+
+        <VBox spacing="5" HBox.hgrow="ALWAYS">
+            <Label text="Existing Roles:" />
+            <TableView fx:id="roleTable" VBox.vgrow="ALWAYS">
+                <columns>
+                    <TableColumn fx:id="roleNameColumn" text="Role" prefWidth="100" />
+                    <TableColumn fx:id="descriptionColumn" text="Description" prefWidth="150" />
+                    <TableColumn fx:id="totalIncomePermissionColumn" text="Total Income" prefWidth="100" />
+                    <TableColumn fx:id="productManagementPermissionColumn" text="Product Mgmt" prefWidth="100" />
+                    <TableColumn fx:id="billingPermissionColumn" text="Billing" prefWidth="80" />
+                    <TableColumn fx:id="logoutPermissionColumn" text="Logout" prefWidth="80" />
+                </columns>
+            </TableView>
+
+            <Button fx:id="backButton" text="Back to Dashboard" onAction="#handleBack" />
+        </VBox>
+    </HBox>
+</VBox>
